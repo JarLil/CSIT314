@@ -9,12 +9,12 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-            
+                
                 <Entry x:Name="Username" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="White"/>
                 <Entry x:Name="Password" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" IsPassword="true" BackgroundColor="White" />
                 <Button x:Name="LogIn" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Clicked="Login_Check" Text="Log In" TextColor="White" BackgroundColor="Black"/>
                 
-                <Label Grid.Row="3" x:Name="RegisterLabel" Text="Need an account? Sign up here!" FontSize="Small" HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
+                <Label Grid.Row="3" x:Name="RegisterLabel" Text="Need an account? Sign up here!" FontSize="Medium" HorizontalOptions="CenterAndExpand" VerticalOptions="End" TextColor="White" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>

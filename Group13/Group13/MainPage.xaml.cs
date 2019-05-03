@@ -17,12 +17,10 @@ namespace Group13
 
     public partial class MainPage : ContentPage
     {
-        List<Users> UserArray = new List<Users>(50);
+        List<Users> UserArray = new List<Users>(200);
 
         public MainPage()
         {
-
-
             InitializeComponent();
 
             Task.Run(() => { LoadData(); });
@@ -35,40 +33,47 @@ namespace Group13
             //Load Users Information into Array
             var assembly = typeof(MainPage).GetTypeInfo().Assembly;
             Stream stream = assembly.GetManifestResourceStream("Group13.UsersData.txt");
-            string text = "";
-
-                   // System.Diagnostics.Debug.WriteLine("Reading text file.");
-
+            
             using (var reader = new System.IO.StreamReader(stream))
             {
-                //text = reader.ReadLine();
-                text = reader.ReadToEnd();
-
-                while (text != null)
+                while (reader.Peek() >= 0)
                 {
-                    var parts = text.Split(',');
-                    Users user = new Users();
+                    string[] strArray;
+                    string str;
 
-                    user.userId = Convert.ToInt32(parts[0]);
-                    user.fName = parts[1];
-                    user.lName = parts[2];
-                    user.email = parts[3];
-                    user.userType = parts[4];
-                    user.subscription = parts[5];
-                    user.carMake = parts[6];
-                    user.carModel = parts[7];
-                    user.carColour = parts[8];
-                    user.registration = parts[9];
-                    user.transmission = Convert.ToBoolean(parts[10]);
-                    user.cylinders = Convert.ToInt32(parts[11]);
+                    str = reader.ReadLine(); //Reads in 1 line from text file
+                    strArray = str.Split(','); //Splits line by ','
+
+                    Users user = new Users(); //Create new user object
+
+                    user.userId = Convert.ToInt32(strArray[0]);
+                    user.fName = strArray[1];
+                    user.lName = strArray[2];
+                    user.email = strArray[3];
+                    user.userType = strArray[4];
+                    user.subscription = strArray[5];
+                    user.carMake = strArray[6];
+                    user.carModel = strArray[7];
+                    user.carColour = strArray[8];
+                    user.registration = strArray[9];
+                    user.transmission = Convert.ToBoolean(strArray[10]);
+                    user.cylinders = Convert.ToInt32(strArray[11]);
 
                     UserArray.Add(user);
-                    Console.WriteLine(user.print());
+                }
+
+                for (int i=0; i < UserArray.Count(); i++)
+                {
+                    //UserArray.
+                }
+
+                foreach (Users u in UserArray)
+                {
+                    System.Diagnostics.Debug.WriteLine("TEST");
+                    System.Diagnostics.Debug.WriteLine(u);
                 }
 
             }
-
-            //Permutate "text" variable to allow to be added to array.
         }
 
         private async void Navigate()
