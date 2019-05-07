@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Group13.RatePage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#0091D5">
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="10, 10, 10, 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label Grid.ColumnSpan="2" Grid.Row="1" Text="You have been serviced by: " TextColor="White" />
+                <Label Grid.ColumnSpan="2" Grid.Row="2" Text="Jim's Gardening" TextColor="White" />
+                <Label Grid.ColumnSpan="3" Grid.Row="3" Text="Write a review  " TextColor="White" />
+
+                <Entry x:Name="Password" Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" IsPassword="true" BackgroundColor="White" />
+
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
