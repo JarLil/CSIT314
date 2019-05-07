@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="HomePage.cs" />
+    <Compile Remove="RR.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Mono.Android">
@@ -23,6 +24,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="UsersData.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="RR.xaml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="UsersData.txt" />

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace Group13.Registration
+namespace Group13
 {
-    public partial class CarDetails : ContentPage
+    public partial class RR : ContentPage
     {
-        public CarDetails()
+        public RR()
         {
             InitializeComponent();
         }
