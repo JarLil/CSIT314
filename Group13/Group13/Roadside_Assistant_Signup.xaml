@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Group13.Roadside_Assistant_Signup">
+    <ContentPage.Content> 
+         <Grid BackgroundColor="#0091D5">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0" Grid.Row="0">
+
+
+                <Label FontAttributes="Bold" Text="Roadside Assistant Sign Up"/>
+                
+                </StackLayout>
+
+            <Grid Grid.Row="1" Margin="20,0,20,0">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="70"/>
+    
+                </Grid.RowDefinitions>
+                <Image Source="/Users/shalinda/Documents/CSIT314/Group13/Group13/PhotoID.png" HeightRequest="70" VerticalOptions="EndAndExpand"/>
+                <Entry Grid.Row="1" Placeholder="Email or User Name" PlaceholderColor="#bababa" FontSize="16"/>
+                <Entry Grid.Row="2" Placeholder="Password" PlaceholderColor="#bababa" FontSize="16"/>
+                <Entry Grid.Row="3" Placeholder="Repeat Password" PlaceholderColor="#bababa" FontSize="16"/>
+               <Entry Grid.Row="4" Placeholder="Full Name" PlaceholderColor="#bababa" FontSize="16"/>
+               <Entry Grid.Row="5" Placeholder="Service Type" PlaceholderColor="#bababa" FontSize="16"/>
+               
+                
+                
+                <Button Text="LogIn" BackgroundColor="#3897f0" TextColor="White" Margin="0,20,0,0" HeightRequest="60" VerticalOptions="Start" Grid.Row="6"/>
+                <Label Text="LoginTrouble?  Get Help" HorizontalOptions="Center" Grid.Row="7" Margin="0,10,0,0" FontSize="12"/>
+
+               
+
+           
+            </Grid>
+
+            <StackLayout Grid.Row="2" BackgroundColor="#ffffff">
+
+                <Label HeightRequest="1" BackgroundColor="#e3e3e3"/>
+                <Label Text="Already have an Account ? Sign In here" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+
+            </StackLayout>
+            
+            
+            
+        </Grid>
+       
+
+
+    </ContentPage.Content>
+</ContentPage>
