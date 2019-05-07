@@ -11,6 +11,18 @@ namespace Group13
     {
         public List<Users> UserArray = new List<Users>();
 
+        string userID = "";
+        string userfName = "";
+        string userlName = "";
+        string userEmail = "";
+        string userSub = "";
+        string userCarMak = "";
+        string userCarMod = "";
+        string userCarCol = "";
+        string userReg = "";
+        string userTrans = "";
+        string userCyl = "";
+
         public LoginPage()
         {
             InitializeComponent();
@@ -28,20 +40,47 @@ namespace Group13
         {
             Boolean check = false;
 
-           for (int i=0; i < UserArray.Count; i++)
+
+            for (int i=0; i < UserArray.Count; i++)
             {
                 if (Username.Text == UserArray[i].email && Password.Text == UserArray[i].password)
                 {
                     check = true;
+                    userID = UserArray[i].userId;
+                    userfName = UserArray[i].fName;
+                    userlName = UserArray[i].lName;
+                    userEmail = UserArray[i].email;
+                    userSub = UserArray[i].subscription;
+                    userCarMak = UserArray[i].carMake;
+                    userCarMod = UserArray[i].carModel;
+                    userCarCol = UserArray[i].carColour;
+                    userReg = UserArray[i].registration;
+                    userTrans = UserArray[i].transmission;
+                    userCyl = UserArray[i].cylinders;
                 }
             }
             if (check)
             {
+                App.CURRENTUSERID = userID;
+                App.CURRENTUSERFNAME = userfName;
+                App.CURRENTUSERLNAME = userlName;
+                App.CURRENTUSEREMAIL = userEmail;
+                App.CURRENTUSERSUBSCRIPTION = userSub;
+                App.CURRENTUSERCARMAKE = userCarMak;
+                App.CURRENTUSERCARMODEL = userCarMod;
+                App.CURRENTUSERCARCOLOUR = userCarCol;
+                App.CURRENTUSERREGISTRATION = userReg;
+
+                System.Diagnostics.Debug.Write(userReg);
+
+                App.CURRENTUSERTRANSMISSION = userTrans;
+                App.CURRENTUSERCYLINDERS = userCyl;
+                 
                 await Navigation.PushAsync(new HomePage());
             }
             else
             {
-                await DisplayAlert("Error", "User not found. Please register for a new account", "Ok");
+                await DisplayAlert("Error", "User not found. Please register for an account", "Ok");
             }
         }
 
@@ -79,8 +118,9 @@ namespace Group13
                         carMake = components[7],
                         carModel = components[8],
                         carColour = components[9],
-                        registration = components[10],
-                        cylinders = components[11]
+                        transmission = components[10],
+                        cylinders = components[11],
+                        registration = components[12]
                     });
                     App.UID++;
                 }

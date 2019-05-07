@@ -21,7 +21,7 @@ namespace Group13
 
         public async void GoToMyRequests(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Page());
+            await Navigation.PushAsync(new MyRequests());
         }
 
         public async void GoToServicesWeProvide(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace Group13
 
         public async void GoToMyAccount(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Page());
+            await Navigation.PushAsync(new MyAccount());
         }
 
         public async void GoToContactUs(object sender, EventArgs e)

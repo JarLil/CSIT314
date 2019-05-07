@@ -1,0 +1,50 @@
+REQ0 80 81 UserCarMake UserCarModel UserCarColour UserCarRego FLAT BATTERY BERKELY
+REQ1 25 36 UserCarMake UserCarModel UserCarColour UserCarRego LOCKED KEYS IN DAPTO
+REQ2 2 33 UserCarMake UserCarModel UserCarColour UserCarRego FLAT TYRE GERRINGONG
+REQ3 34 17 UserCarMake UserCarModel UserCarColour UserCarRego TOWING FAIRY MEADOW
+REQ4 58 5 UserCarMake UserCarModel UserCarColour UserCarRego LOCKED KEYS IN WOLLONGONG
+REQ5 51 1 UserCarMake UserCarModel UserCarColour UserCarRego FREE ADVICE THIRROUL
+REQ6 35 55 UserCarMake UserCarModel UserCarColour UserCarRego FLAT TYRE WOONONA
+REQ7 22 13 UserCarMake UserCarModel UserCarColour UserCarRego EMPTY GAS TANK FAIRY MEADOW
+REQ8 79 18 UserCarMake UserCarModel UserCarColour UserCarRego LOCKED KEYS IN AVONDALE
+REQ9 55 82 UserCarMake UserCarModel UserCarColour UserCarRego LOCKED KEYS IN KIAMA
+REQ10 13 95 UserCarMake UserCarModel UserCarColour UserCarRego FREE ADVICE THIRROUL
+REQ11 55 11 UserCarMake UserCarModel UserCarColour UserCarRego FLAT BATTERY BERKELY
+REQ12 4 51 UserCarMake UserCarModel UserCarColour UserCarRego LOCKED KEYS IN FAIRY MEADOW
+REQ13 64 5 UserCarMake UserCarModel UserCarColour UserCarRego FREE ADVICE COLEDALE
+REQ14 43 36 UserCarMake UserCarModel UserCarColour UserCarRego FREE ADVICE CONISTON
+REQ15 88 43 UserCarMake UserCarModel UserCarColour UserCarRego EMPTY GAS TANK CORRIMAL
+REQ16 43 70 UserCarMake UserCarModel UserCarColour UserCarRego FLAT BATTERY KIAMA
+REQ17 17 32 UserCarMake UserCarModel UserCarColour UserCarRego FLAT TYRE JAMBEROO
+REQ18 59 73 UserCarMake UserCarModel UserCarColour UserCarRego FREE ADVICE PORT KEMBLA
+REQ19 10 11 UserCarMake UserCarModel UserCarColour UserCarRego TOWING LAKE HEIGHTS
+REQ20 42 45 UserCarMake UserCarModel UserCarColour UserCarRego LOCKED KEYS IN CORRIMAL
+REQ21 8 83 UserCarMake UserCarModel UserCarColour UserCarRego EMPTY GAS TANK AVONDALE
+REQ22 13 50 UserCarMake UserCarModel UserCarColour UserCarRego EMPTY GAS TANK DAPTO
+REQ23 2 17 UserCarMake UserCarModel UserCarColour UserCarRego FLAT BATTERY PORT KEMBLA
+REQ24 16 84 UserCarMake UserCarModel UserCarColour UserCarRego TOWING CORRIMAL
+REQ25 3 15 UserCarMake UserCarModel UserCarColour UserCarRego TOWING JAMBEROO
+REQ26 82 64 UserCarMake UserCarModel UserCarColour UserCarRego FLAT TYRE CONISTON
+REQ27 26 27 UserCarMake UserCarModel UserCarColour UserCarRego EMPTY GAS TANK PORT KEMBLA
+REQ28 52 86 UserCarMake UserCarModel UserCarColour UserCarRego FREE ADVICE AVONDALE
+REQ29 86 49 UserCarMake UserCarModel UserCarColour UserCarRego FLAT BATTERY LAKE HEIGHTS
+REQ30 90 3 UserCarMake UserCarModel UserCarColour UserCarRego LOCKED KEYS IN WOONONA
+REQ31 27 85 UserCarMake UserCarModel UserCarColour UserCarRego FREE ADVICE SHELLHARBOUR
+REQ32 17 31 UserCarMake UserCarModel UserCarColour UserCarRego FREE ADVICE FAIRY MEADOW
+REQ33 63 14 UserCarMake UserCarModel UserCarColour UserCarRego EMPTY GAS TANK KIAMA
+REQ34 22 11 UserCarMake UserCarModel UserCarColour UserCarRego TOWING BULLI
+REQ35 42 33 UserCarMake UserCarModel UserCarColour UserCarRego FLAT BATTERY BERKELY
+REQ36 80 4 UserCarMake UserCarModel UserCarColour UserCarRego EMPTY GAS TANK SHELLHARBOUR
+REQ37 10 81 UserCarMake UserCarModel UserCarColour UserCarRego FLAT TYRE ALBION PARK
+REQ38 33 40 UserCarMake UserCarModel UserCarColour UserCarRego FLAT BATTERY GERRINGONG
+REQ39 62 38 UserCarMake UserCarModel UserCarColour UserCarRego FLAT TYRE ALBION PARK
+REQ40 26 12 UserCarMake UserCarModel UserCarColour UserCarRego FLAT BATTERY FAIRY MEADOW
+REQ41 77 41 UserCarMake UserCarModel UserCarColour UserCarRego FREE ADVICE CONISTON
+REQ42 20 97 UserCarMake UserCarModel UserCarColour UserCarRego TOWING BULLI
+REQ43 62 32 UserCarMake UserCarModel UserCarColour UserCarRego FLAT BATTERY THIRROUL
+REQ44 57 5 UserCarMake UserCarModel UserCarColour UserCarRego FLAT BATTERY WOONONA
+REQ45 58 39 UserCarMake UserCarModel UserCarColour UserCarRego TOWING JAMBEROO
+REQ46 81 65 UserCarMake UserCarModel UserCarColour UserCarRego EMPTY GAS TANK DAPTO
+REQ47 17 12 UserCarMake UserCarModel UserCarColour UserCarRego FREE ADVICE THIRROUL
+REQ48 59 99 UserCarMake UserCarModel UserCarColour UserCarRego LOCKED KEYS IN WOLLONGONG
+REQ49 51 46 UserCarMake UserCarModel UserCarColour UserCarRego LOCKED KEYS IN COLEDALE

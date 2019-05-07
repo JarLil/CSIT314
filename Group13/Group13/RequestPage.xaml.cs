@@ -10,6 +10,8 @@ namespace Group13
         public RequestPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         public async void PrevPage(object sender, EventArgs e)
@@ -19,6 +21,8 @@ namespace Group13
 
         public async void SubmitRequest(object sender, EventArgs e)
         {
+            //Read in Requests.txt and update REQID to last one
+
             CarMakePicker.BackgroundColor = FieldChecks.CheckPicker(CarMakePicker.SelectedIndex) ? Color.FromHex("#0BDA51") : Color.FromHex("#FFC0CB");
             CarModelPicker.BackgroundColor = FieldChecks.CheckPicker(CarModelPicker.SelectedIndex) ? Color.FromHex("#0BDA51") : Color.FromHex("#FFC0CB");
             CarColourPicker.BackgroundColor = FieldChecks.CheckPicker(CarColourPicker.SelectedIndex) ? Color.FromHex("#0BDA51") : Color.FromHex("#FFC0CB");
@@ -35,6 +39,9 @@ namespace Group13
                         {
                             if (ServicePicker.BackgroundColor == Color.FromHex("#0BDA51"))
                             {
+                                string line = "CREQ" + App.ReqID + " " + App.CURRENTUSERID + " " + CarMakePicker.SelectedItem + " " + CarModelPicker.SelectedItem + " " + CarColourPicker.SelectedItem + " " + CarRegistration.Text + " " + ServicePicker.SelectedItem + " " + LocationPicker.SelectedItem + " " + "PENDING";
+
+                                System.Diagnostics.Debug.Write(line);
                                 await DisplayAlert("Success", "Request Successfully submitted", "Ok");
                                 await Navigation.PopAsync();
                             }

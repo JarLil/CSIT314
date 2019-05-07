@@ -62,10 +62,9 @@ namespace Group13.Registration
                                                         {
                                                             App.UID++;
                                                             string input = (App.UID.ToString() + " " + fName.Text + " " + lName.Text + " " + Email.Text + " " + Password.Text + " USER " + SubscriptionPicker.SelectedItem + " " + CarMakePicker.SelectedItem + " " + CarModelPicker.SelectedItem + " " + CarColourPicker.SelectedItem + " " + CarTransPicker.SelectedItem + " " + CarCylPicker.SelectedItem + " " + CarRegistration.Text);
+                                                            System.Diagnostics.Debug.Write(input);
 
-                                                            var assembly = IntrospectionExtensions.GetTypeInfo(typeof(MainPage)).Assembly;
-                                                            string line = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Group13.UsersData.txt");
-                                                            File.WriteAllText(line, input);
+                                                            //Need to write to text file here!!!
 
                                                             await DisplayAlert("Success", "Account has successfully been created", "Ok");
                                                             await Navigation.PopAsync();

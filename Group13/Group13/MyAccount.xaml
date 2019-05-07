@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Group13.MyAccount">
+    <ContentPage.Content>
+        <StackLayout Padding="10,10,0,10" BackgroundColor="#0091D5">
+            <Label Text="My Account" TextColor="White" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Start" />
+            <ScrollView BackgroundColor="#0091D5" Padding="0,0,0,0" Margin="0,0,0,0">
+                <StackLayout Padding="10,10,10,0" Margin="0,0,0,0"> 
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/> <!-- User fname + lname -->
+                            <RowDefinition Height="*"/> <!-- User email -->
+                            <RowDefinition Height="*"/> <!-- User Subscription -->
+                            <RowDefinition Height="*"/> <!-- "CAR DETAILS" -->
+                            <RowDefinition Height="*"/> <!-- User Car make -->
+                            <RowDefinition Height="*"/> <!-- User Car Model -->
+                            <RowDefinition Height="*"/> <!-- User Car Colour -->
+                            <RowDefinition Height="*"/> <!-- User Car Rego -->
+                            <RowDefinition Height="*"/> <!-- User Car Trans -->
+                            <RowDefinition Height="*"/> <!-- User Car Cyl -->
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Label Grid.Row="0" Grid.Column="0" Text="Name:" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start"/>
+                        <Label x:Name="nameLabel" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start"/>
+                        
+                        <Label Grid.Row="1" Grid.Column="0" Text="Email:" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start"/>
+                        <Label x:Name="emailLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        
+                        <Label Grid.Row="2" Grid.Column="0" Text="Subscription:" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        <Label x:Name="subscriptionLabel" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="" FontSize="Medium" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                        
+                        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Text="Car Details" FontSize="Large" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" />
+                        
+                        <Label Grid.Row="4" Grid.Column="0" Text="Car Make:" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        <Label x:Name="carMakeLabel" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        
+                        <Label Grid.Row="5" Grid.Column="0" Text="Car Model:" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        <Label x:Name="carModelLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Text="" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        
+                        <Label Grid.Row="6" Grid.Column="0" Text="Car Colour:" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        <Label x:Name="carColourLabel" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Text="" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        
+                        <Label Grid.Row="7" Grid.Column="0" Text="Car Registration:" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        <Label x:Name="carRegoLabel" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Text="" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        
+                        <Label Grid.Row="8" Grid.Column="0" Text="Car Transmission:" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        <Label x:Name="carTransLabel" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Text="" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        
+                        <Label Grid.Row="9" Grid.Column="0" Text="Car Cylinders:" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />
+                        <Label x:Name="carCylLabel" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" Text="" FontSize="Medium" TextColor="White" HorizontalOptions="Start" VerticalOptions="Start" />                        
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                
+                
+                <Button Grid.Row="0" Grid.Column="0" Text="Back" TextColor="White" BackgroundColor="Transparent" BorderColor="White" BorderWidth="1" BorderRadius="33" Clicked="GoBack" />
+                <Button Grid.Row="0" Grid.Column="1" Text="Edit" TextColor="White" BackgroundColor="Transparent" BorderColor="White" BorderWidth="1" BorderRadius="33" Clicked="EditDetails" />
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
