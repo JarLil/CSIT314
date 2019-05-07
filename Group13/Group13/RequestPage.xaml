@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Group13.RequestPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,10" BackgroundColor="#0091D5">
+            <Label Text="Service Requests" HorizontalOptions="Center" VerticalOptions="Start" FontSize="Large" TextColor="White" />
+            <ScrollView BackgroundColor="#0091D5" Padding="10,0,10,0" Margin="0,0,0,0">
+                <StackLayout Padding="0,0,0,0" Margin="0,0,0,0">        
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Label Grid.Row="0" Grid.Column="0" Text="Vehicle Make" TextColor="White" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Start" />
+                        <Picker x:Name="CarMakePicker" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" SelectedIndexChanged="PopulatePicker" TextColor="White">
+                            <Picker.Items>
+                                <x:String>HONDA</x:String>
+                                <x:String>HOLDEN</x:String>
+                                <x:String>FORD</x:String>
+                                <x:String>MAZDA</x:String>
+                                <x:String>SUBARU</x:String>
+                                <x:String>AUDI</x:String>
+                                <x:String>PORSCHE</x:String>
+                                <x:String>SUZUKI</x:String>
+                                <x:String>TOYOTA</x:String>
+                                <x:String>MITSUBISHI</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <Label Grid.Row="1" Grid.Column="0" Text="Vehicle Model" TextColor="White" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Start" />
+                        <Picker x:Name="CarModelPicker" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White"/>
+                        
+                        <Label Grid.Row="2" Grid.Column="0" Text="Vehicle Colour" TextColor="White" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Start" />
+                        <Picker x:Name="CarColourPicker" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White">
+                            <Picker.Items>
+                                <x:String>RED</x:String>
+                                <x:String>BLACK</x:String>
+                                <x:String>WHITE</x:String>
+                                <x:String>PURPLE</x:String>
+                                <x:String>MAROON</x:String>
+                                <x:String>LIGHT BLUE</x:String>
+                                <x:String>DARK BLUE</x:String>
+                                <x:String>NAVY BLUE</x:String>
+                                <x:String>LIME GREEN</x:String>
+                                <x:String>DARK GREEN</x:String>
+                                <x:String>LIGHT GREEN</x:String>
+                                <x:String>TURQUOISE</x:String>
+                                <x:String>YELLOW</x:String>
+                                <x:String>ORANGE</x:String>
+                                <x:String>SILVER</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <Label Grid.Row="3" Grid.Column="0" Text="Car Registration" TextColor="White" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Start" />
+                        <Entry x:Name="CarRegistration" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" FontSize="Medium" TextColor="White" Placeholder="Car Registration" PlaceholderColor="White" />
+                    
+                        <Label Grid.Row="4" Grid.Column="0" Text="Select a service" TextColor="White" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Start" />
+                        <Picker x:Name="ServicePicker" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White">
+                            <Picker.Items>
+                                <x:String>Option 1</x:String>
+                                <x:String>Option 2</x:String>
+                                <x:String>Option 3</x:String>
+                                <x:String>Option 4</x:String>
+                                <x:String>Option 5</x:String>
+                                <x:String>Option 6</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <Label Grid.Row="5" Grid.Column="0" Text="Location" TextColor="White" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Start" />
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+            <Grid VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                        
+                <Button Grid.Row="0" Grid.Column="0" Text="Back" FontSize="Default" HorizontalOptions="StartAndExpand" VerticalOptions="End" WidthRequest="150" HeightRequest="70" BackgroundColor="Transparent" TextColor="White" BorderColor="White" BorderWidth="1" CornerRadius="33" Clicked="PrevPage" />
+                <Button Grid.Row="0" Grid.Column="1" Text="Submit Request" FontSize="Default" HorizontalOptions="EndAndExpand" VerticalOptions="End" WidthRequest="150" HeightRequest="70" BackgroundColor="Transparent" TextColor="White" BorderColor="White" BorderWidth="1" CornerRadius="33" Clicked="SubmitRequest" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

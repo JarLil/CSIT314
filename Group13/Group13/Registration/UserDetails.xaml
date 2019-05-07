@@ -42,7 +42,7 @@
                         <Label Grid.Row="5" Grid.Column="0" Text="Subscription:" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
                         <Picker x:Name="SubscriptionPicker" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White" SelectedIndex="0">
                             <Picker.Items>
-                                <x:String> FREE </x:String>
+                                <x:String>FREE</x:String>
                                 <x:String>1MONTH</x:String>
                                 <x:String>3MONTHS</x:String>
                                 <x:String>6MONTHS</x:String>
@@ -70,7 +70,7 @@
                         <Picker Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" x:Name="CarModelPicker" TextColor="White"/>
                         
                         <Label Grid.Row="8" Grid.Column="0" Text="Car Colour" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
-                        <Picker x:Name="CarColourPicker" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Picker x:Name="CarColourPicker" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White">
                             <Picker.Items>
                                 <x:String>RED</x:String>
                                 <x:String>BLACK</x:String>
@@ -91,7 +91,7 @@
                         </Picker>
                         
                         <Label Grid.Row="9" Grid.Column="0" Text="Car Transmission" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
-                        <Picker x:Name="CarTransPicker" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Picker x:Name="CarTransPicker" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White">
                             <Picker.Items>
                                 <x:String>MANUAL</x:String>
                                 <x:String>AUTOMATIC</x:String>
@@ -99,7 +99,7 @@
                         </Picker>
                         
                         <Label Grid.Row="10" Grid.Column="0" Text="Car Cylinders" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
-                        <Picker x:Name="CarCylPicker" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" SelectedIndex="0">
+                        <Picker x:Name="CarCylPicker" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" SelectedIndex="0" TextColor="White">
                             <Picker.Items>
                                <x:String>4</x:String> 
                                 <x:String>6</x:String>

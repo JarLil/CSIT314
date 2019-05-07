@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Group13
 {
     public class Users
@@ -16,6 +18,8 @@ namespace Group13
         public String registration { get; set; }
         public string transmission { get; set; }
         public string cylinders { get; set; }
+
+        public List<Users> UserArray { get; set; }
 
         public string print()
         {

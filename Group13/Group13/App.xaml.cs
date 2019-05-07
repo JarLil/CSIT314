@@ -6,6 +6,8 @@ namespace Group13
 {
     public partial class App : Application
     {
+        public static int UID = 0;
+
         public App()
         {
             InitializeComponent();

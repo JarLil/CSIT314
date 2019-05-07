@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.IO;
+using System.Reflection;
 using Xamarin.Forms;
 
 namespace Group13.Registration
@@ -59,7 +60,12 @@ namespace Group13.Registration
                                                     {
                                                         if (CarRegistration.BackgroundColor == Color.FromHex("#0BDA51"))
                                                         {
+                                                            App.UID++;
+                                                            string input = (App.UID.ToString() + " " + fName.Text + " " + lName.Text + " " + Email.Text + " " + Password.Text + " USER " + SubscriptionPicker.SelectedItem + " " + CarMakePicker.SelectedItem + " " + CarModelPicker.SelectedItem + " " + CarColourPicker.SelectedItem + " " + CarTransPicker.SelectedItem + " " + CarCylPicker.SelectedItem + " " + CarRegistration.Text);
 
+                                                            var assembly = IntrospectionExtensions.GetTypeInfo(typeof(MainPage)).Assembly;
+                                                            string line = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Group13.UsersData.txt");
+                                                            File.WriteAllText(line, input);
 
                                                             await DisplayAlert("Success", "Account has successfully been created", "Ok");
                                                             await Navigation.PopAsync();
