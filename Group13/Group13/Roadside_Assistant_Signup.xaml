@@ -29,11 +29,11 @@
     
                 </Grid.RowDefinitions>
                 <Image Source="/Users/shalinda/Documents/CSIT314/Group13/Group13/PhotoID.png" HeightRequest="70" VerticalOptions="EndAndExpand"/>
-                <Entry Grid.Row="1" Placeholder="Email or User Name" PlaceholderColor="White" FontSize="16"/>
-                <Entry Grid.Row="2" Placeholder="Password" PlaceholderColor="White" FontSize="16"/>
-                <Entry Grid.Row="3" Placeholder="Repeat Password" PlaceholderColor="White" FontSize="16"/>
-               <Entry Grid.Row="4" Placeholder="Full Name" PlaceholderColor="White" FontSize="16"/>
-               <Entry Grid.Row="5" Placeholder="Service Type" PlaceholderColor="White" FontSize="16"/>
+                <Entry x:Name ="UserName" Grid.Row="1" Placeholder="Email or User Name" PlaceholderColor="White" FontSize="16"/>
+                <Entry x:Name ="Password" Grid.Row="2" Placeholder="Password" PlaceholderColor="White" FontSize="16"/>
+                <Entry x:Name ="RepaetPassword" Grid.Row="3" Placeholder="Repeat Password" PlaceholderColor="White" FontSize="16"/>
+               <Entry x:Name ="RSAName" Grid.Row="4" Placeholder="Full Name" PlaceholderColor="White" FontSize="16"/>
+               <Entry x:Name ="ServiceType" Grid.Row="5" Placeholder="Service Type" PlaceholderColor="White" FontSize="16"/>
                
                 
                 
