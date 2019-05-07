@@ -11,5 +11,10 @@ namespace Group13
         {
             InitializeComponent();
         }
+
+        void RSAlogin_Clicked(object sender, System.EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
