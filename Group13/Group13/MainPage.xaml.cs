@@ -17,7 +17,7 @@ namespace Group13
 
     public partial class MainPage : ContentPage
     {
-        List<Users> UserArray = new List<Users>(200);
+        List<Users> UserArray = new List<Users>();
 
         public MainPage()
         {
@@ -31,46 +31,46 @@ namespace Group13
         private void LoadData()
         {
             //Load Users Information into Array
-            var assembly = typeof(MainPage).GetTypeInfo().Assembly;
+            var assembly = IntrospectionExtensions.GetTypeInfo(typeof(MainPage)).Assembly;
+            //var assembly = typeof(MainPage).GetTypeInfo().Assembly; -- Works
             Stream stream = assembly.GetManifestResourceStream("Group13.UsersData.txt");
-            
+
+            //
+            var textlines = new List<string>();
+            string lines = null;
+            int userCounter = 0;
+
             using (var reader = new System.IO.StreamReader(stream))
             {
-                while (reader.Peek() >= 0)
+                while ((lines = reader.ReadLine()) != null)
                 {
-                    string[] strArray;
-                    string str;
-
-                    str = reader.ReadLine(); //Reads in 1 line from text file
-                    strArray = str.Split(','); //Splits line by ','
-
-                    Users user = new Users(); //Create new user object
-
-                    user.userId = Convert.ToInt32(strArray[0]);
-                    user.fName = strArray[1];
-                    user.lName = strArray[2];
-                    user.email = strArray[3];
-                    user.userType = strArray[4];
-                    user.subscription = strArray[5];
-                    user.carMake = strArray[6];
-                    user.carModel = strArray[7];
-                    user.carColour = strArray[8];
-                    user.registration = strArray[9];
-                    user.transmission = Convert.ToBoolean(strArray[10]);
-                    user.cylinders = Convert.ToInt32(strArray[11]);
-
-                    UserArray.Add(user);
+                    textlines.Add(lines);
                 }
 
-                for (int i=0; i < UserArray.Count(); i++)
+                foreach (var line in textlines)
                 {
-                    //UserArray.
+                    string[] components = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    this.UserArray.Add(new Users
+                    {
+                        userId = components[0],
+                        fName = components[1],
+                        lName = components[2],
+                        email = components[3],
+                        password = components[4],
+                        userType = components[5],
+                        subscription = components[6],
+                        carMake = components[7],
+                        carModel = components[8],
+                        carColour = components[9],
+                        registration = components[10],
+                        cylinders = components[11]
+                    });
                 }
 
                 foreach (Users u in UserArray)
                 {
-                    System.Diagnostics.Debug.WriteLine("TEST");
-                    System.Diagnostics.Debug.WriteLine(u);
+                    System.Diagnostics.Debug.WriteLine(u.print());
                 }
 
             }

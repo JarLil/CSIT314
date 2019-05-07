@@ -1,32 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Group13.Registration.UserDetails">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#0091D5" Padding="10,40,10,10">
+        <StackLayout Padding="10,0,0,10" BackgroundColor="#0091D5" >
             <Label Text="Register an Account" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" FontSize="Large" TextColor="White" />
-            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                
-            
-                <Label Grid.Row="2" Grid.Column="0" Text="Email:" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
-                <Entry Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="2" x:Name="EmailAddress" Keyboard="Email" Placeholder="Email" PlaceholderColor="White" BackgroundColor="Transparent" TextColor="White" />
-            
-                <Label Grid.Row="3" Grid.Column="0" Text="Password:" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
-                <Entry Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Password" Keyboard="Email" IsPassword="true" Placeholder="Password" PlaceholderColor="White" BackgroundColor="Transparent" TextColor="White" />
-            
-                <Label Grid.Row="4" Grid.Column="0" Text="Re-enter Password:" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
-                <Entry Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" x:Name="ReEnterPassword" Keyboard="Email" IsPassword="true" Placeholder="Password" PlaceholderColor="White" TextColor="White" />
-            </Grid>
+            <ScrollView BackgroundColor="#0091D5" Padding="0,0,0,0" Margin="0,0,0,0">
+                <StackLayout Padding="0,0,0,0" Margin="0,0,0,0">
+                    <Grid HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Label Grid.Row="0" Grid.Column="0" Text="First Name:" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
+                        <Entry Grid.Row="0"  Grid.Column="1" Grid.ColumnSpan="2" x:Name="fName" Keyboard="Default" Placeholder="First Name" PlaceholderColor="White" BackgroundColor="Transparent" TextColor="White" />
+                    
+                        <Label Grid.Row="1" Grid.Column="0" Text="Last Name:" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
+                        <Entry Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="lName" Keyboard="Default" Placeholder="Last Name" PlaceholderColor="White" BackgroundColor="Transparent" TextColor="White" />
+                    
+                        <Label Grid.Row="2" Grid.Column="0" Text="Email:" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
+                        <Entry Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Email" Keyboard="Email" Placeholder="Email" PlaceholderColor="White" TextColor="White" />
+                        
+                        <Label Grid.Row="3" Grid.Column="0" Text="Password:" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
+                        <Entry Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Password" Placeholder="Password" IsPassword="true" PlaceholderColor="White" TextColor="White" />
+                        
+                        <Label Grid.Row="4" Grid.Column="0" Text="Re-enter Password:" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
+                        <Entry Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" x:Name="ReEnterPassword" Placeholder="Password" IsPassword="true" PlaceholderColor="White" TextColor="White" />
+                        
+                        <Label Grid.Row="5" Grid.Column="0" Text="Subscription:" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
+                        <Picker x:Name="SubscriptionPicker" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White" SelectedIndex="0">
+                            <Picker.Items>
+                                <x:String> FREE </x:String>
+                                <x:String>1MONTH</x:String>
+                                <x:String>3MONTHS</x:String>
+                                <x:String>6MONTHS</x:String>
+                                <x:String>12MONTHS</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <Label Grid.Row="6" Grid.Column="0" Text="Car Make" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
+                        <Picker x:Name="CarMakePicker" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White" SelectedIndex="1" SelectedIndexChanged="PopulatePicker">
+                            <Picker.Items>
+                                <x:String>HONDA</x:String>
+                                <x:String>HOLDEN</x:String>
+                                <x:String>FORD</x:String>
+                                <x:String>MAZDA</x:String>
+                                <x:String>SUBARU</x:String>
+                                <x:String>AUDI</x:String>
+                                <x:String>PORSCHE</x:String>
+                                <x:String>SUZUKI</x:String>
+                                <x:String>TOYOTA</x:String>
+                                <x:String>MITSUBISHI</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <Label Grid.Row="7" Grid.Column="0" Text="Car Model" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
+                        <Picker Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" x:Name="CarModelPicker" TextColor="White"/>
+                        
+                        <Label Grid.Row="8" Grid.Column="0" Text="Car Colour" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
+                        <Picker x:Name="CarColourPicker" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2">
+                            <Picker.Items>
+                                <x:String>RED</x:String>
+                                <x:String>BLACK</x:String>
+                                <x:String>WHITE</x:String>
+                                <x:String>PURPLE</x:String>
+                                <x:String>MAROON</x:String>
+                                <x:String>LIGHT BLUE</x:String>
+                                <x:String>DARK BLUE</x:String>
+                                <x:String>NAVY BLUE</x:String>
+                                <x:String>LIME GREEN</x:String>
+                                <x:String>DARK GREEN</x:String>
+                                <x:String>LIGHT GREEN</x:String>
+                                <x:String>TURQUOISE</x:String>
+                                <x:String>YELLOW</x:String>
+                                <x:String>ORANGE</x:String>
+                                <x:String>SILVER</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <Label Grid.Row="9" Grid.Column="0" Text="Car Transmission" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
+                        <Picker x:Name="CarTransPicker" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2">
+                            <Picker.Items>
+                                <x:String>MANUAL</x:String>
+                                <x:String>AUTOMATIC</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <Label Grid.Row="10" Grid.Column="0" Text="Car Cylinders" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
+                        <Picker x:Name="CarCylPicker" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" SelectedIndex="0">
+                            <Picker.Items>
+                               <x:String>4</x:String> 
+                                <x:String>6</x:String>
+                                <x:String>8</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        
+                        <Label Grid.Row="11" Grid.Column="0" Text="Car Registration" HorizontalOptions="Start" VerticalOptions="Start" FontSize="Medium" TextColor="White" />
+                        <Entry Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2" x:Name="CarRegistration" Placeholder="Car Registration" TextColor="White" PlaceholderColor="White" FontSize="Medium"/>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
             <Grid VerticalOptions="End" HorizontalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -35,11 +120,10 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                
-                <Button Grid.Row="0" Grid.Column="0" Text="Previous" HorizontalOptions="StartAndExpand" VerticalOptions="End" WidthRequest="150" HeightRequest="50" BackgroundColor="Transparent" TextColor="White" BorderColor="White" BorderWidth="1" Clicked="PrevPage" />
-                <Button Grid.Row="0" Grid.Column="1" Text="Next" HorizontalOptions="EndAndExpand" VerticalOptions="End" WidthRequest="150" HeightRequest="50" BackgroundColor="Transparent" TextColor="White" BorderColor="White" BorderWidth="1" CornerRadius="33" Clicked="NextPage" />
+                        
+                <Button Grid.Row="0" Grid.Column="0" Text="Previous" FontSize="Default" HorizontalOptions="StartAndExpand" VerticalOptions="End" WidthRequest="150" HeightRequest="70" BackgroundColor="Transparent" TextColor="White" BorderColor="White" BorderWidth="1" CornerRadius="33" Clicked="PrevPage" />
+                <Button Grid.Row="0" Grid.Column="1" Text="Create Account" FontSize="Default" HorizontalOptions="EndAndExpand" VerticalOptions="End" WidthRequest="150" HeightRequest="70" BackgroundColor="Transparent" TextColor="White" BorderColor="White" BorderWidth="1" CornerRadius="33" Clicked="CreateAccount" />
             </Grid>
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
