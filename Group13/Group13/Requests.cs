@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Group13
 {
-    public class Requests
+    public class Request
     {
-        public string ReqID { get; set; }
+        public string REQID { get; set; }
         public String UserID { get; set; }
         public String UserCarMake { get; set; }
         public String UserCarModel { get; set; }
@@ -14,7 +14,5 @@ namespace Group13
         public String UserMessage { get; set; }
         public String UserLocation { get; set; }
         public String Status { get; set; }
-
-        public List<Requests> RequestsArray { get; set; }
     }
 }

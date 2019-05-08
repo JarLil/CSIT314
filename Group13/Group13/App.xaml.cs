@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,19 +12,15 @@ namespace Group13
         public static int UID = 0;
         public static int ReqID = 0;
         public static int CompletedReqID = 0;
+        public static int RSAID = 0;
 
-        //Current User Info
-        public static string CURRENTUSERID = "";
-        public static string CURRENTUSERFNAME = "";
-        public static string CURRENTUSERLNAME = "";
-        public static string CURRENTUSEREMAIL = "";
-        public static string CURRENTUSERSUBSCRIPTION = "";
-        public static string CURRENTUSERCARMAKE = "";
-        public static string CURRENTUSERCARMODEL = "";
-        public static string CURRENTUSERCARCOLOUR = "";
-        public static string CURRENTUSERREGISTRATION = "";
-        public static string CURRENTUSERTRANSMISSION = "";
-        public static string CURRENTUSERCYLINDERS = "";
+        //Current logged-in users ID
+        public static string CURRENTUSERID;
+
+        public static List<Users> UsersArray = new List<Users>();
+        public static List<RoadSideAssistant> RSAArray = new List<RoadSideAssistant>();
+        public static List<Request> RequestsArray = new List<Request>();
+        public static List<CompletedRequests> CompletedRequestsArray = new List<CompletedRequests>();
 
         public App()
         {

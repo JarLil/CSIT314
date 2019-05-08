@@ -17,8 +17,5 @@ namespace Group13
         public String carColour { get; set; }
         public String registration { get; set; }
         public string training { get; set; }
-
-        public List<RoadSideAssistant> RSAArray { get; set; }
-
     }
 }

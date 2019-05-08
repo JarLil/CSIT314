@@ -4,7 +4,7 @@ namespace Group13
 {
     public class CompletedRequests
     {
-        public string ReqID { get; set; }
+        public string CompletedeID { get; set; }
         public String RSAID { get; set; }
         public String UserID { get; set; }
         public String UserCarMake { get; set; }
@@ -13,7 +13,5 @@ namespace Group13
         public String UserRego { get; set; }
         public String UserMessage { get; set; }
         public String UserLocation { get; set; }
-
-        public List<CompletedRequests> CompletedRequestsArray { get; set; }
     }
 }
