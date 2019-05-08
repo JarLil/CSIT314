@@ -24,12 +24,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="UsersData.txt" />
+    <None Remove="RSA.txt" />
+    <None Remove="Requests.txt" />
+    <None Remove="CompletedRequests.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="RR.xaml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="UsersData.txt" />
+    <EmbeddedResource Include="RSA.txt" />
+    <EmbeddedResource Include="Requests.txt" />
+    <EmbeddedResource Include="CompletedRequests.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Registration\" />

@@ -46,7 +46,6 @@ namespace Group13
 
                                 //Need to write line to text file here!!!
 
-
                                 await DisplayAlert("Success", "Request Successfully submitted", "Ok");
                                 await Navigation.PopAsync();
                             }

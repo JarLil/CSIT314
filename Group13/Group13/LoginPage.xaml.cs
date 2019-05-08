@@ -15,8 +15,8 @@ namespace Group13
             NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
 
-            Task.Run(() => { LoadData(); });
-            Task.Run(() => { LoadRSAData(); });
+            LoadData();
+            LoadRSAData();
 
             var tgr = new TapGestureRecognizer();
             tgr.Tapped += (s, e) => ToRegisterPage();
@@ -25,41 +25,48 @@ namespace Group13
 
         public void LoadRSAData()
         {
-            var rsaAssembly = IntrospectionExtensions.GetTypeInfo(typeof(MainPage)).Assembly;
-            Stream rsaStream = rsaAssembly.GetManifestResourceStream("Group13.RSA.txt");
-
-            //
-            var rsaText = new List<string>();
-            string rsaLine = null;
-
-            using (var reader = new System.IO.StreamReader(rsaStream))
+            try
             {
-                while ((rsaLine = reader.ReadLine()) != null)
-                {
-                    rsaText.Add(rsaLine);
-                }
+                var rsaAssembly = IntrospectionExtensions.GetTypeInfo(typeof(MainPage)).Assembly;
+                Stream rsaStream = rsaAssembly.GetManifestResourceStream("Group13.RSA.txt");
 
-                foreach (var line in rsaText)
-                {
-                    string[] components = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                //
+                var rsaText = new List<string>();
+                string rsaLine = null;
 
-                    App.RSAArray.Add(new RoadSideAssistant
+                using (var reader = new System.IO.StreamReader(rsaStream))
+                {
+                    while ((rsaLine = reader.ReadLine()) != null)
                     {
-                        RID = components[0],
-                        fName = components[1],
-                        lName = components[2],
-                        email = components[3],
-                        password = components[4],
-                        type = components[5],
-                        carMake = components[6],
-                        carModel = components[7],
-                        carColour = components[8],
-                        registration = components[9],
-                        training = components[10]
-                    });
-                    App.RSAID++;
+                        rsaText.Add(rsaLine);
+                    }
+
+                    foreach (var line in rsaText)
+                    {
+                        string[] components = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                        App.RSAArray.Add(new RoadSideAssistant
+                        {
+                            RID = components[0],
+                            fName = components[1],
+                            lName = components[2],
+                            email = components[3],
+                            password = components[4],
+                            type = components[5],
+                            carMake = components[6],
+                            carModel = components[7],
+                            carColour = components[8],
+                            registration = components[9],
+                            training = components[10]
+                        });
+                        App.RSAID++;
+                    }
+                    System.Diagnostics.Debug.Write("READ RSA");
                 }
-                System.Diagnostics.Debug.Write("READ RSA");
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.Write("Error", e.ToString());
             }
         }
 
