@@ -26,7 +26,7 @@ namespace Group13
             Navigate();
         }
 
-        public async void LoadData()
+        public void LoadData()
         {
             //Current requests
             var assembly = IntrospectionExtensions.GetTypeInfo(typeof(MainPage)).Assembly;

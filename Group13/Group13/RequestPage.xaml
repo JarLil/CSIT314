@@ -44,12 +44,12 @@
                                 <x:String>WHITE</x:String>
                                 <x:String>PURPLE</x:String>
                                 <x:String>MAROON</x:String>
-                                <x:String>LIGHT BLUE</x:String>
-                                <x:String>DARK BLUE</x:String>
-                                <x:String>NAVY BLUE</x:String>
-                                <x:String>LIME GREEN</x:String>
-                                <x:String>DARK GREEN</x:String>
-                                <x:String>LIGHT GREEN</x:String>
+                                <x:String>LIGHT_BLUE</x:String>
+                                <x:String>DARK_BLUE</x:String>
+                                <x:String>NAVY_BLUE</x:String>
+                                <x:String>LIME_GREEN</x:String>
+                                <x:String>DARK_GREEN</x:String>
+                                <x:String>LIGHT_GREEN</x:String>
                                 <x:String>TURQUOISE</x:String>
                                 <x:String>YELLOW</x:String>
                                 <x:String>ORANGE</x:String>
@@ -63,11 +63,11 @@
                         <Label Grid.Row="4" Grid.Column="0" Text="Select a service" TextColor="White" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Start" />
                         <Picker x:Name="ServicePicker" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White">
                             <Picker.Items>
-                                <x:String>FLAT TYRE</x:String>
-                                <x:String>FLAT BATTERY</x:String>
-                                <x:String>LOCKED KEYS IN</x:String>
-                                <x:String>EMPTY GAS TANK</x:String>
-                                <x:String>FREE ADVICE</x:String>
+                                <x:String>FLAT_TYRE</x:String>
+                                <x:String>FLAT_BATTERY</x:String>
+                                <x:String>LOCKED_KEYS_IN</x:String>
+                                <x:String>EMPTY_GAS_TANK</x:String>
+                                <x:String>FREE_ADVICE</x:String>
                                 <x:String>TOWING</x:String>
                             </Picker.Items>
                         </Picker>
