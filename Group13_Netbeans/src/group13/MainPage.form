@@ -110,9 +110,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Havent got an account yet? Sign up Here"/>
       </Properties>
-      <Events>
-        <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="TextClick"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>

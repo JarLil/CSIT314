@@ -51,15 +51,6 @@ public class MainPage extends javax.swing.JFrame
         jTextField2.setText("jTextField2");
 
         jLabel4.setText("Havent got an account yet? Sign up Here");
-        jLabel4.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                TextClick(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
 
         jButton1.setText("Log In");
 
@@ -113,11 +104,6 @@ public class MainPage extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void TextClick(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_TextClick
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_TextClick
 
     /**
      * @param args the command line arguments
@@ -258,9 +244,9 @@ class car
 
 class Request
 {
-    Date requestDate;
-    String cfName, clName, cCarMake, cCarModel, cRegistration, Message, Location, Status;
-    int cID, rID;
+    private Date requestDate;
+    private String cfName, clName, cCarMake, cCarModel, cRegistration, Message, Location, Status;
+    private int cID, rID;
     
     public Request(int cID, Date requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID)
     {
@@ -280,5 +266,14 @@ class Request
 
 class CompletedRequest extends Request
 {
+    protected Date requestDate, CompleteDate;
+    protected String cfName, clName, cCarMake, cCarModel, cRegistration, Message, Location, Status;
+    protected int cID, rID; 
     
+    
+    public CompletedRequest(int cID, Date requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID, Date completeDate)
+    {
+        super (cID, requestDate, fName, lName, carMake, carModel, registration, message, location, status, rID);
+        this.CompleteDate = completeDate;
+    }
 }
