@@ -5,11 +5,14 @@
  */
 package group13;
 
+import java.util.*;
+
 /**
  *
  * @author Jarrod
  */
-public class MainPage extends javax.swing.JFrame {
+public class MainPage extends javax.swing.JFrame
+{
 
     /**
      * Creates new form MainPage
@@ -160,4 +163,122 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+}
+
+class User
+{
+    protected String fName, lName, email, password;
+    protected int cID=0;
+    
+    public User(int cID, String fName, String lName, String email, String password)
+    {
+       this.cID = cID;
+       this.fName = fName;
+       this.lName = lName;
+       this.email = email;
+       this.password = password;
+    }
+    
+    public String getFullName()
+    {
+        return (fName + " " + lName);
+    }
+    
+    public String getEmail()
+    {
+        return email;
+    }
+    
+    public String printCustRecord()
+    {
+        return (cID + ", " + fName + " " + lName + ", " + email);
+    }
+    
+    
+}
+
+class RoadSide_Assistant
+{
+    protected String fName, lName, email, password;
+    protected int rID=0;
+    
+    public String getFullName()
+    {
+        return (fName + " " + lName);
+    }
+    
+    public String getEmail()
+    {
+        return email;
+    }
+    
+    public String printCustRecord()
+    {
+        return (rID + ", " + fName + " " + lName + ", " + email);
+    }
+}
+
+class car
+{
+   protected String carModel, carMake, carColour, carTransmission, subscription, registration;
+   protected int carID = 0, carCylinder;
+   
+   public car(int carID, String carModel, String carMake, String carColour, String carTransmission, int carCylinder, String subscription, String registration)
+   {
+       this.carID = carID;
+       this.carModel = carModel;
+       this.carMake = carMake;
+       this.carColour = carColour;
+       this.carTransmission = carTransmission;
+       this.carCylinder = carCylinder;
+       this.subscription = subscription;
+       this.registration = registration;
+   }
+   
+   public String getCarModelMake()
+    {
+        return (carMake + " " + carModel);
+    }
+    
+    public String getMake()
+    {
+        return carMake;
+    }
+    
+    public String getModel()
+    {
+        return carModel;
+    }
+    
+    public String printCustRecord()
+    {
+        return (carID + ", " + carMake + " " + carModel + ", " + carTransmission + ", " + subscription + ", " + registration);
+    }
+}
+
+class Request
+{
+    Date requestDate;
+    String cfName, clName, cCarMake, cCarModel, cRegistration, Message, Location, Status;
+    int cID, rID;
+    
+    public Request(int cID, Date requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID)
+    {
+        this.cID = cID;
+        this.requestDate = requestDate;
+        this.cfName = fName;
+        this.clName = lName;
+        this.cCarMake = carMake;
+        this.cCarModel = carModel;
+        this.cRegistration = registration;
+        this.Message = message;
+        this.Location = location;
+        this.Status = status;
+        this.rID = rID;
+    }
+}
+
+class CompletedRequest extends Request
+{
+    
 }
