@@ -11,13 +11,13 @@ import java.util.*;
  *
  * @author Jarrod
  */
-public class MainPage extends javax.swing.JFrame
+public class LoginPage extends javax.swing.JFrame
 {
 
     /**
      * Creates new form MainPage
      */
-    public MainPage() {
+    public LoginPage() {
         initComponents();
     }
 
@@ -40,15 +40,11 @@ public class MainPage extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setText("jTextField1");
-
         jLabel1.setText("Username:");
 
         jLabel2.setText("Log In");
 
         jLabel3.setText("Password :");
-
-        jTextField2.setText("jTextField2");
 
         jLabel4.setText("Havent got an account yet? Sign up Here");
 
@@ -122,20 +118,21 @@ public class MainPage extends javax.swing.JFrame
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainPage().setVisible(true);
+                new LoginPage().setVisible(true);
             }
         });
     }
@@ -149,131 +146,4 @@ public class MainPage extends javax.swing.JFrame
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
-}
-
-class User
-{
-    protected String fName, lName, email, password;
-    protected int cID=0;
-    
-    public User(int cID, String fName, String lName, String email, String password)
-    {
-       this.cID = cID;
-       this.fName = fName;
-       this.lName = lName;
-       this.email = email;
-       this.password = password;
-    }
-    
-    public String getFullName()
-    {
-        return (fName + " " + lName);
-    }
-    
-    public String getEmail()
-    {
-        return email;
-    }
-    
-    public String printCustRecord()
-    {
-        return (cID + ", " + fName + " " + lName + ", " + email);
-    }
-    
-    
-}
-
-class RoadSide_Assistant
-{
-    protected String fName, lName, email, password;
-    protected int rID=0;
-    
-    public String getFullName()
-    {
-        return (fName + " " + lName);
-    }
-    
-    public String getEmail()
-    {
-        return email;
-    }
-    
-    public String printCustRecord()
-    {
-        return (rID + ", " + fName + " " + lName + ", " + email);
-    }
-}
-
-class car
-{
-   protected String carModel, carMake, carColour, carTransmission, subscription, registration;
-   protected int carID = 0, carCylinder;
-   
-   public car(int carID, String carModel, String carMake, String carColour, String carTransmission, int carCylinder, String subscription, String registration)
-   {
-       this.carID = carID;
-       this.carModel = carModel;
-       this.carMake = carMake;
-       this.carColour = carColour;
-       this.carTransmission = carTransmission;
-       this.carCylinder = carCylinder;
-       this.subscription = subscription;
-       this.registration = registration;
-   }
-   
-   public String getCarModelMake()
-    {
-        return (carMake + " " + carModel);
-    }
-    
-    public String getMake()
-    {
-        return carMake;
-    }
-    
-    public String getModel()
-    {
-        return carModel;
-    }
-    
-    public String printCustRecord()
-    {
-        return (carID + ", " + carMake + " " + carModel + ", " + carTransmission + ", " + subscription + ", " + registration);
-    }
-}
-
-class Request
-{
-    private Date requestDate;
-    private String cfName, clName, cCarMake, cCarModel, cRegistration, Message, Location, Status;
-    private int cID, rID;
-    
-    public Request(int cID, Date requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID)
-    {
-        this.cID = cID;
-        this.requestDate = requestDate;
-        this.cfName = fName;
-        this.clName = lName;
-        this.cCarMake = carMake;
-        this.cCarModel = carModel;
-        this.cRegistration = registration;
-        this.Message = message;
-        this.Location = location;
-        this.Status = status;
-        this.rID = rID;
-    }
-}
-
-class CompletedRequest extends Request
-{
-    protected Date requestDate, CompleteDate;
-    protected String cfName, clName, cCarMake, cCarModel, cRegistration, Message, Location, Status;
-    protected int cID, rID; 
-    
-    
-    public CompletedRequest(int cID, Date requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID, Date completeDate)
-    {
-        super (cID, requestDate, fName, lName, carMake, carModel, registration, message, location, status, rID);
-        this.CompleteDate = completeDate;
-    }
 }
