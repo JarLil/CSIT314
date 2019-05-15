@@ -16,7 +16,7 @@ public class Group13 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        new LoginPage();
+        new LoginPage().setVisible(true);
     }
     
 }

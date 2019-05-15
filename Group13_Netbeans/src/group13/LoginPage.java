@@ -5,6 +5,7 @@
  */
 package group13;
 
+import java.io.*;
 import java.util.*;
 
 /**
@@ -13,12 +14,19 @@ import java.util.*;
  */
 public class LoginPage extends javax.swing.JFrame
 {
-
+    public ArrayList<User> UserArray = new ArrayList<>();
+    public ArrayList<RoadSide_Assistant> AssistantArray = new ArrayList<>();
+    public ArrayList<Car> CarArray = new ArrayList<>();
+    public ArrayList<Requests> CurrentRequests = new ArrayList<>();
+    public ArrayList<CompletedRequests> CompletedRequests = new ArrayList<>();
+    
+    static LoginPage loginWindow = new LoginPage();
     /**
      * Creates new form MainPage
      */
     public LoginPage() {
         initComponents();
+        LoadData();
     }
 
     /**
@@ -30,15 +38,17 @@ public class LoginPage extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        UserEmail = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        UserPassword = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        UserEmail.setName("UserEmail"); // NOI18N
 
         jLabel1.setText("Username:");
 
@@ -46,9 +56,16 @@ public class LoginPage extends javax.swing.JFrame
 
         jLabel3.setText("Password :");
 
+        UserPassword.setName("UserPassword"); // NOI18N
+
         jLabel4.setText("Havent got an account yet? Sign up Here");
 
         jButton1.setText("Log In");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,8 +78,8 @@ public class LoginPage extends javax.swing.JFrame
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(UserEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UserPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47))
             .addGroup(layout.createSequentialGroup()
                 .addGap(120, 120, 120)
@@ -86,11 +103,11 @@ public class LoginPage extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(UserEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(UserPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -98,9 +115,127 @@ public class LoginPage extends javax.swing.JFrame
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        UserEmail.getAccessibleContext().setAccessibleName("UserEmail");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        
+        //USERTYPE: 1 = USER, 2 = RSA
+        int userType = 0;
+        //Login
+        
+        System.out.println("----- UsersArray -----");
+        for (User u : UserArray)
+        {
+            System.out.println(u.printCustRecord());
+        }
+        
+        System.out.println("----- AssistantArray -----");
+        for (RoadSide_Assistant RSA : AssistantArray)
+        {
+            System.out.println(RSA.printCustRecord());
+        }
+        
+        for (User u : UserArray)
+        {
+            String usersEmail = UserEmail.getText();
+            String usersPassword = UserPassword.getText();
+
+            if ((u.getEmail().equals(usersEmail)) && u.getPassword().equals(usersPassword))
+            {
+                userType = 1; //USER
+            }
+        }
+        for (RoadSide_Assistant RSA : AssistantArray)
+        {
+            String usersEmail = UserEmail.getText();
+            String usersPassword = UserPassword.getText();
+            
+            if ((RSA.getEmail().equals(usersEmail)) && (RSA.getPassword().equals(usersPassword)))
+            {
+                userType = 2; //RSA
+            }
+        }
+        
+        if (userType != 0)
+        {
+           Login(userType); 
+        }
+        else
+        {
+            System.out.println("Error, User not found");
+        }
+        
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    public void LoadData()
+    {
+        String fileNameU = "Users.txt";
+        
+        try
+        {
+           BufferedReader fin = new BufferedReader(new FileReader(fileNameU));
+           
+           String st;
+           while ((st = fin.readLine()) != null)
+           {
+               String[] line = st.split(",");
+               // int cID, String pfName, String plName, String pEmail, String pPassword
+               UserArray.add(new User(Integer.parseInt(line[0]), line[1], line[2], line[3], line[4]));
+            }
+           
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error reading Users.txt: " + e);
+        }
+        
+        String fileNameR = "RSA.txt";
+        
+        try
+        {
+            BufferedReader fin = new BufferedReader(new FileReader(fileNameR));
+            String st;
+            
+            while ((st = fin.readLine()) != null)
+            {
+                String[] line = st.split(",");
+                
+                // int rID, String fName, String lname, String emil, String password
+                AssistantArray.add(new RoadSide_Assistant(Integer.parseInt(line[0]), line[1], line[2], line[3], line[4]));
+            }
+            
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error reading RSA.txt: " + e);
+        }
+        
+        //Requests (Current)
+        
+        //Requests (Completed)
+        
+        //Cars
+    }
+    
+    public static void Login(int userType)
+    {
+        if (userType == 1)
+        {
+            //Login as user
+            loginWindow.setVisible(false);
+            new UserMainPage().setVisible(true);
+        }
+        else if (userType == 2)
+        {
+            loginWindow.setVisible(false);
+            new RSAMainPage().setVisible(true);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -128,22 +263,22 @@ public class LoginPage extends javax.swing.JFrame
         }
         //</editor-fold>
         //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginPage().setVisible(true);
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField UserEmail;
+    private javax.swing.JTextField UserPassword;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
