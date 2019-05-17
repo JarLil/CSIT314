@@ -5,12 +5,18 @@
  */
 package group13;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
 /**
  *
  * @author Jarrod
  */
 public class UserMainPage extends javax.swing.JFrame {
 
+    static UserMainPage UserPage = new UserMainPage();
+
+    
     /**
      * Creates new form MainPage
      */
@@ -39,8 +45,8 @@ public class UserMainPage extends javax.swing.JFrame {
         CompletedRequestsArea = new javax.swing.JTextArea();
         UpdateCompletedRequests = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        MakeRequest = new javax.swing.JPanel();
+        LogoutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,23 +144,23 @@ public class UserMainPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("My Account", jPanel2);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout MakeRequestLayout = new javax.swing.GroupLayout(MakeRequest);
+        MakeRequest.setLayout(MakeRequestLayout);
+        MakeRequestLayout.setHorizontalGroup(
+            MakeRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 435, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        MakeRequestLayout.setVerticalGroup(
+            MakeRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 302, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab3", jPanel3);
+        jTabbedPane1.addTab("Make Request", MakeRequest);
 
-        jButton1.setText("Log Out");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        LogoutButton.setText("Log Out");
+        LogoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                LogoutButtonMouseClicked(evt);
             }
         });
 
@@ -166,7 +172,7 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(LogoutButton)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -176,7 +182,7 @@ public class UserMainPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTabbedPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(LogoutButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -184,12 +190,12 @@ public class UserMainPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void LogoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutButtonMouseClicked
         //LOG OUT
-        logOut();
+        
 
-    }//GEN-LAST:event_jButton1MouseClicked
-
+    }//GEN-LAST:event_LogoutButtonMouseClicked
+    
     private void UpdateCurrentRequestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateCurrentRequestsMouseClicked
         
         //Update TEXTFIELD from array 
@@ -207,10 +213,6 @@ public class UserMainPage extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_UpdateCurrentRequestsMouseClicked
-
-    public static void logOut() {
-        //UserMainPage().setVisible(false);
-    }
 
     /**
      * @param args the command line arguments
@@ -251,13 +253,13 @@ public class UserMainPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea CompletedRequestsArea;
     private javax.swing.JTextArea CurrentRequestsArea;
+    private javax.swing.JButton LogoutButton;
+    private javax.swing.JPanel MakeRequest;
     private javax.swing.JPanel Requests;
     private javax.swing.JButton UpdateCompletedRequests;
     private javax.swing.JButton UpdateCurrentRequests;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

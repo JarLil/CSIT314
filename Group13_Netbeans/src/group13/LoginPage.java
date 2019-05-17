@@ -29,6 +29,7 @@ public class LoginPage extends javax.swing.JFrame
     public LoginPage() {
         initComponents();
         LoadData();
+        IncorrectLabel.setVisible(false);
     }
 
     /**
@@ -47,6 +48,7 @@ public class LoginPage extends javax.swing.JFrame
         UserPassword = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        IncorrectLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +70,8 @@ public class LoginPage extends javax.swing.JFrame
                 jButton1MouseClicked(evt);
             }
         });
+
+        IncorrectLabel.setText("Incorrect username or password");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,9 +97,12 @@ public class LoginPage extends javax.swing.JFrame
                         .addGap(21, 21, 21)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jButton1)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addGap(87, 87, 87)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(IncorrectLabel)))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,11 +117,13 @@ public class LoginPage extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(UserPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(IncorrectLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         UserEmail.getAccessibleContext().setAccessibleName("UserEmail");
@@ -127,20 +136,9 @@ public class LoginPage extends javax.swing.JFrame
         
         //USERTYPE: 1 = USER, 2 = RSA
         int userType = 0;
+        
+        
         //Login
-        
-        System.out.println("----- UsersArray -----");
-        for (User u : UserArray)
-        {
-            System.out.println(u.printCustRecord());
-        }
-        
-        System.out.println("----- AssistantArray -----");
-        for (RoadSide_Assistant RSA : AssistantArray)
-        {
-            System.out.println(RSA.printCustRecord());
-        }
-        
         for (User u : UserArray)
         {
             String usersEmail = UserEmail.getText();
@@ -169,7 +167,7 @@ public class LoginPage extends javax.swing.JFrame
         }
         else
         {
-            System.out.println("Error, User not found");
+            IncorrectLabel.setVisible(true);
         }
         
     }//GEN-LAST:event_jButton1MouseClicked
@@ -377,6 +375,7 @@ public class LoginPage extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel IncorrectLabel;
     private javax.swing.JTextField UserEmail;
     private javax.swing.JTextField UserPassword;
     private javax.swing.JButton jButton1;
