@@ -36,7 +36,7 @@ public class UserMainPage extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         Requests = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        PreviousRequests = new javax.swing.JPanel();
         UpdateCurrentRequests = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         CurrentRequestsArea = new javax.swing.JTextArea();
@@ -44,8 +44,8 @@ public class UserMainPage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         CompletedRequestsArea = new javax.swing.JTextArea();
         UpdateCompletedRequests = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        MakeRequest = new javax.swing.JPanel();
+        MyAccountTab = new javax.swing.JPanel();
+        MakeRequestTab = new javax.swing.JPanel();
         LogoutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,29 +61,29 @@ public class UserMainPage extends javax.swing.JFrame {
         CurrentRequestsArea.setRows(5);
         jScrollPane2.setViewportView(CurrentRequestsArea);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout PreviousRequestsLayout = new javax.swing.GroupLayout(PreviousRequests);
+        PreviousRequests.setLayout(PreviousRequestsLayout);
+        PreviousRequestsLayout.setHorizontalGroup(
+            PreviousRequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PreviousRequestsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(UpdateCurrentRequests))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        PreviousRequestsLayout.setVerticalGroup(
+            PreviousRequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PreviousRequestsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(PreviousRequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PreviousRequestsLayout.createSequentialGroup()
                         .addComponent(UpdateCurrentRequests)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jTabbedPane2.addTab("Current", jPanel1);
+        jTabbedPane2.addTab("Current", PreviousRequests);
 
         CompletedRequestsArea.setColumns(20);
         CompletedRequestsArea.setRows(5);
@@ -131,31 +131,31 @@ public class UserMainPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Requests", Requests);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout MyAccountTabLayout = new javax.swing.GroupLayout(MyAccountTab);
+        MyAccountTab.setLayout(MyAccountTabLayout);
+        MyAccountTabLayout.setHorizontalGroup(
+            MyAccountTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 435, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        MyAccountTabLayout.setVerticalGroup(
+            MyAccountTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 302, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("My Account", jPanel2);
+        jTabbedPane1.addTab("My Account", MyAccountTab);
 
-        javax.swing.GroupLayout MakeRequestLayout = new javax.swing.GroupLayout(MakeRequest);
-        MakeRequest.setLayout(MakeRequestLayout);
-        MakeRequestLayout.setHorizontalGroup(
-            MakeRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout MakeRequestTabLayout = new javax.swing.GroupLayout(MakeRequestTab);
+        MakeRequestTab.setLayout(MakeRequestTabLayout);
+        MakeRequestTabLayout.setHorizontalGroup(
+            MakeRequestTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 435, Short.MAX_VALUE)
         );
-        MakeRequestLayout.setVerticalGroup(
-            MakeRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        MakeRequestTabLayout.setVerticalGroup(
+            MakeRequestTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 302, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Make Request", MakeRequest);
+        jTabbedPane1.addTab("Make Request", MakeRequestTab);
 
         LogoutButton.setText("Log Out");
         LogoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -254,12 +254,12 @@ public class UserMainPage extends javax.swing.JFrame {
     private javax.swing.JTextArea CompletedRequestsArea;
     private javax.swing.JTextArea CurrentRequestsArea;
     private javax.swing.JButton LogoutButton;
-    private javax.swing.JPanel MakeRequest;
+    private javax.swing.JPanel MakeRequestTab;
+    private javax.swing.JPanel MyAccountTab;
+    private javax.swing.JPanel PreviousRequests;
     private javax.swing.JPanel Requests;
     private javax.swing.JButton UpdateCompletedRequests;
     private javax.swing.JButton UpdateCurrentRequests;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
