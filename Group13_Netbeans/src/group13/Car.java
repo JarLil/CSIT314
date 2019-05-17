@@ -14,7 +14,7 @@ public class Car
    protected String carModel, carMake, carColour, carTransmission, subscription, registration;
    protected int carID = 0, carCylinder, OwnerID;
    
-   public Car(int carID, String carModel, String carMake, String carColour, String carTransmission, int carCylinder, String subscription, String registration, int ownerID)
+   public Car(int carID, String carMake, String carModel, String carColour, String carTransmission, int carCylinder, String subscription, String registration, int ownerID)
    {
        this.carID = carID;
        this.carModel = carModel;

@@ -44,7 +44,12 @@ public class UserMainPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        UpdateCurrentRequests.setText("Update");
+        UpdateCurrentRequests.setText("Refresh");
+        UpdateCurrentRequests.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UpdateCurrentRequestsMouseClicked(evt);
+            }
+        });
 
         CurrentRequestsArea.setColumns(20);
         CurrentRequestsArea.setRows(5);
@@ -86,7 +91,7 @@ public class UserMainPage extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(UpdateCompletedRequests))
         );
@@ -124,7 +129,7 @@ public class UserMainPage extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
+            .addGap(0, 435, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +142,7 @@ public class UserMainPage extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
+            .addGap(0, 435, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,14 +187,31 @@ public class UserMainPage extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         //LOG OUT
         logOut();
-        
+
     }//GEN-LAST:event_jButton1MouseClicked
 
-    public static void logOut()
-    {
+    private void UpdateCurrentRequestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateCurrentRequestsMouseClicked
+        
+        //Update TEXTFIELD from array 
+        for (int i=0; i < LoginPage.CurrentRequests.size(); i++)
+        {
+            String result;
+            Requests line = LoginPage.CurrentRequests.get(i);
+            
+            if (LoginPage.LoginID == line.getCustID())
+            {
+               result = line.getRequestInfo();
+                CurrentRequestsArea.append(result);
+                //String nl = \n';
+                CurrentRequestsArea.append("\n");
+            }
+        }
+    }//GEN-LAST:event_UpdateCurrentRequestsMouseClicked
+
+    public static void logOut() {
         //UserMainPage().setVisible(false);
     }
-    
+
     /**
      * @param args the command line arguments
      */

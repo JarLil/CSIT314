@@ -28,6 +28,11 @@ public class User
         return (fName + " " + lName);
     }
     
+    public int getID()
+    {
+        return cID;
+    }
+            
     public String getEmail()
     {
         return email;

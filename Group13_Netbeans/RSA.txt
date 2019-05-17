@@ -1,2 +1,3 @@
-0,Jake,Brown,jb@gmail.com,parrot
-1,Joshua,Reddington,jr@bigpond.com,sausage
+0,Jake,Brown,jb@gmail.com,parrot,4,1
+1,Joshua,Reddington,jr@bigpond.com,sausage,6,1
+2,Erich,Wattson,ew@hotmail.com,noodle,0,0

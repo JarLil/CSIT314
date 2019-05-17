@@ -6,6 +6,7 @@
 package group13;
 
 import java.io.*;
+import java.text.*;
 import java.util.*;
 
 /**
@@ -14,13 +15,14 @@ import java.util.*;
  */
 public class LoginPage extends javax.swing.JFrame
 {
-    public ArrayList<User> UserArray = new ArrayList<>();
-    public ArrayList<RoadSide_Assistant> AssistantArray = new ArrayList<>();
-    public ArrayList<Car> CarArray = new ArrayList<>();
-    public ArrayList<Requests> CurrentRequests = new ArrayList<>();
-    public ArrayList<CompletedRequests> CompletedRequests = new ArrayList<>();
+    public static ArrayList<User> UserArray = new ArrayList<>();
+    public static ArrayList<RoadSide_Assistant> AssistantArray = new ArrayList<>();
+    public static ArrayList<Car> CarArray = new ArrayList<>();
+    public static ArrayList<Requests> CurrentRequests = new ArrayList<>();
+    public static ArrayList<CompletedRequests> CompletedRequests = new ArrayList<>();
     
     static LoginPage loginWindow = new LoginPage();
+    public static int LoginID = -1;
     /**
      * Creates new form MainPage
      */
@@ -147,6 +149,7 @@ public class LoginPage extends javax.swing.JFrame
             if ((u.getEmail().equals(usersEmail)) && u.getPassword().equals(usersPassword))
             {
                 userType = 1; //USER
+                LoginID = u.getID();
             }
         }
         for (RoadSide_Assistant RSA : AssistantArray)
@@ -205,7 +208,7 @@ public class LoginPage extends javax.swing.JFrame
                 String[] line = st.split(",");
                 
                 // int rID, String fName, String lname, String emil, String password
-                AssistantArray.add(new RoadSide_Assistant(Integer.parseInt(line[0]), line[1], line[2], line[3], line[4]));
+                AssistantArray.add(new RoadSide_Assistant(Integer.parseInt(line[0]), line[1], line[2], line[3], line[4], Integer.parseInt(line[5]), Boolean.parseBoolean(line[6])));
             }
             
         }
@@ -216,9 +219,110 @@ public class LoginPage extends javax.swing.JFrame
         
         //Requests (Current)
         
+        String fileNameReq = "Requests.txt";
+        
+        try
+        {
+            BufferedReader fin = new BufferedReader(new FileReader(fileNameReq));
+            String st;
+            
+            while ((st = fin.readLine()) != null)
+            {
+                String[] line = st.split(",");
+                
+                Date date1;
+                
+                String string1 = line[1];
+                DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+                try
+                {
+                    date1 = format.parse(string1);
+                }
+                catch (ParseException e)
+                {
+                    System.out.println("Error: " + e);
+                    date1 = new Date("01/01/1900");
+                }
+                
+                // int cID, Date requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID
+            CurrentRequests.add(new Requests(Integer.parseInt(line[0]), date1, line[2], line[3], line[4], line[5], line[6], line[7], line[8], line[9], Integer.parseInt(line[10])));
+            }
+            
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error reading Requests.txt: " + e);
+        }
+        
         //Requests (Completed)
         
+        String fileNameCompReq = "CompletedRequests.txt";
+        
+        try
+        {
+            BufferedReader fin = new BufferedReader(new FileReader(fileNameCompReq));
+            String st;
+            
+            while ((st = fin.readLine()) != null)
+            {
+                String[] line = st.split(",");
+                
+                Date date1;
+                
+                String string1 = line[1];
+                
+                DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+                try
+                {
+                    date1 = format.parse(string1);
+                }
+                catch (ParseException e)
+                {
+                    System.out.println("Error: " + e);
+                    date1 = new Date("01/01/1900");
+                }
+                
+                // int cID, String requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID, String completeDate
+                CompletedRequests.add(new CompletedRequests(Integer.parseInt(line[0]), date1, line[2], line[3], line[4], line[5], line[6], line[7], line[8], line[9], Integer.parseInt(line[10])));
+            }
+            
+            /*
+            
+            
+                    TEST FOR CRASH, THEN WRITE COMPLETEDREQUESTS TEXT FILE AND TEST ALL ARE READING
+                    PROPERLY.
+                    IF THEY ARE, START REGISTRATION PROCESS
+            
+            
+            */
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error reading CompletedRequests.txt: " + e);
+        }
+        
         //Cars
+        
+        String fileNameCar = "Car.txt";
+        
+        try
+        {
+            BufferedReader fin = new BufferedReader(new FileReader(fileNameCar));
+            String st;
+            
+            while ((st = fin.readLine()) != null)
+            {
+                String[] line = st.split(",");
+                
+                // int carID, String carMake, String carModel, String carColour, String carTransmission, int carCylinder, String subscription, String registration, int ownerID
+            CarArray.add(new Car(Integer.parseInt(line[0]), line[1], line[2], line[3], line[4], Integer.parseInt(line[5]), line[6], line[7], Integer.parseInt(line[8])));
+            }
+            
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error reading Car.txt: " + e);
+        }
     }
     
     public static void Login(int userType)

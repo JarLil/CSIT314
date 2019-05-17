@@ -13,9 +13,9 @@ import java.util.Date;
  */
 public class Requests
 {
-    private Date requestDate;
-    private String cfName, clName, cCarMake, cCarModel, cRegistration, Message, Location, Status;
-    private int cID, rID;
+    private final Date requestDate;
+    private final String cfName, clName, cCarMake, cCarModel, cRegistration, Message, Location, Status;
+    private final int cID, rID;
     
     public Requests(int cID, Date requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID)
     {
@@ -34,25 +34,34 @@ public class Requests
     
     public String getRequestInfo()
     {
-        return (cID + ", " + requestDate + ", " + cfName + ", " + clName + ", " + cCarMake + ", " + cCarModel + ", " + cRegistration + ", " + Location + ", " + Message + ", " + Status);
+        return (cID + ", " + requestDate + ", " + cfName + ", " + clName + ", " + cCarMake + ", " + cCarModel + ", " + cRegistration + ", " + Location + ", " + Message + ", " + Status + ", " + rID);
+    }
+    
+    public int getCustID()
+    {
+        return cID;
     }
 }
 
 class CompletedRequests extends Requests
 {
-    protected Date requestDate, CompleteDate;
+    protected Date requestDate;
     protected String cfName, clName, cCarMake, cCarModel, cRegistration, Message, Location, Status;
     protected int cID, rID; 
     
     
-    public CompletedRequests(int cID, Date requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID, Date completeDate)
+    public CompletedRequests(int cID, Date requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID)
     {
         super (cID, requestDate, fName, lName, carMake, carModel, registration, message, location, status, rID);
-        this.CompleteDate = completeDate;
     }
     
     public String getRequestInfo()
     {
-        return (cID + ", " + requestDate + ", " + cfName + ", " + clName + ", " + cCarMake + ", " + cCarModel + ", " + cRegistration + ", " + Location + ", " + Message + ", " + Status + ". " + CompleteDate);
+        return (cID + ", " + requestDate + ", " + cfName + ", " + clName + ", " + cCarMake + ", " + cCarModel + ", " + cRegistration + ", " + Location + ", " + Message + ", " + Status);
     }
+    public int getCustID()
+    {
+        return cID;
+    }
+    
 }

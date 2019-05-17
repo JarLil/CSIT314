@@ -5,12 +5,13 @@
  */
 package group13;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Jarrod
  */
-public class Group13 {
-
+public class Group13 {    
     /**
      * @param args the command line arguments
      */
