@@ -16,11 +16,11 @@ public class Reviews {
     
     public Reviews(int pUserID, int pRSA_ID, int pRating, String pMessage, String pLocation)
     {
-        this.UserID = pUserID;
-        this.RSA_ID = pRSA_ID;
-        this.Rating = pRating;
-        this.Message = pMessage;
-        this.Location = pLocation;
+        this.UserID = pUserID; //Users' ID
+        this.RSA_ID = pRSA_ID; //RSA's ID
+        this.Rating = pRating; //Rating out of 10
+        this.Message = pMessage; //the review message the user provides about the RSA
+        this.Location = pLocation; //Location of the request
     }
     
     public String getReview()

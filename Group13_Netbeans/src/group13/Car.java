@@ -24,7 +24,7 @@ public class Car
        this.carCylinder = carCylinder;
        this.subscription = subscription;
        this.registration = registration;
-       this.OwnerID = ownerID;
+       this.OwnerID = ownerID; //User ID
    }
    
    public String getCarModelMake()

@@ -20,6 +20,7 @@ public class LoginPage extends javax.swing.JFrame
     public static ArrayList<Car> CarArray = new ArrayList<>();
     public static ArrayList<Requests> CurrentRequests = new ArrayList<>();
     public static ArrayList<CompletedRequests> CompletedRequests = new ArrayList<>();
+    public static ArrayList<Reviews> ReviewArray = new ArrayList<>();
     
     static LoginPage loginWindow = new LoginPage();
     public static int LoginID = -1;
@@ -230,7 +231,7 @@ public class LoginPage extends javax.swing.JFrame
                 
                 Date date1;
                 
-                String string1 = line[1];
+                String string1 = line[2];
                 DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
                 try
                 {
@@ -242,8 +243,8 @@ public class LoginPage extends javax.swing.JFrame
                     date1 = new Date("01/01/1900");
                 }
                 
-                // int cID, Date requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID
-            CurrentRequests.add(new Requests(Integer.parseInt(line[0]), date1, line[2], line[3], line[4], line[5], line[6], line[7], line[8], line[9], Integer.parseInt(line[10])));
+                //ReqID, userID, requestDate, userfName, userlName, carMake, carModel, registration, message, location, status, rID
+            CurrentRequests.add(new Requests(Integer.parseInt(line[0]), Integer.parseInt(line[1]), date1, line[3], line[4], line[5], line[6], line[7], line[8], line[9], line[10], Integer.parseInt(line[11])));
             }
             
         }
@@ -267,7 +268,7 @@ public class LoginPage extends javax.swing.JFrame
                 
                 Date date1;
                 
-                String string1 = line[1];
+                String string1 = line[2];
                 
                 DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
                 try
@@ -281,18 +282,8 @@ public class LoginPage extends javax.swing.JFrame
                 }
                 
                 // int cID, String requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID, String completeDate
-                CompletedRequests.add(new CompletedRequests(Integer.parseInt(line[0]), date1, line[2], line[3], line[4], line[5], line[6], line[7], line[8], line[9], Integer.parseInt(line[10])));
+                CompletedRequests.add(new CompletedRequests(Integer.parseInt(line[0]), Integer.parseInt(line[1]), date1, line[3], line[4], line[5], line[6], line[7], line[8], line[9], line[10], Integer.parseInt(line[11])));
             }
-            
-            /*
-            
-            
-                    TEST FOR CRASH, THEN WRITE COMPLETEDREQUESTS TEXT FILE AND TEST ALL ARE READING
-                    PROPERLY.
-                    IF THEY ARE, START REGISTRATION PROCESS
-            
-            
-            */
         }
         catch (IOException e)
         {
@@ -321,6 +312,30 @@ public class LoginPage extends javax.swing.JFrame
         {
             System.out.println("Error reading Car.txt: " + e);
         }
+        
+        //Reviews
+        
+        String fileNameReview = "ReviewRating.txt";
+        
+        try
+        {
+            BufferedReader fin = new BufferedReader(new FileReader(fileNameReview));
+            String st;
+            
+            while ((st = fin.readLine()) != null)
+            {
+                String[] line = st.split(",");
+                
+                System.out.println(line[0] + ", " + line[1] + ", " + line[2] + ", " + line[3] + ", " + line[4]);
+                
+                // int carID, String carMake, String carModel, String carColour, String carTransmission, int carCylinder, String subscription, String registration, int ownerID
+                ReviewArray.add(new Reviews(Integer.parseInt(line[0]), Integer.parseInt(line[1]), Integer.parseInt(line[2]), line[3], line[4]));
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error reading ReviewRating.txt: " + e);
+        }   
     }
     
     public static void Login(int userType)
@@ -336,6 +351,13 @@ public class LoginPage extends javax.swing.JFrame
             loginWindow.setVisible(false);
             new RSAMainPage().setVisible(true);
         }
+    }
+    
+    public static void Register()
+    {
+        //Start register page, hide login page
+        loginWindow.setVisible(false);
+        new RegisterPage().setVisible(true);
     }
     
     /**
