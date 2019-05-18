@@ -22,8 +22,8 @@ public class LoginPage extends javax.swing.JFrame
     public static ArrayList<CompletedRequests> CompletedRequests = new ArrayList<>();
     public static ArrayList<Reviews> ReviewArray = new ArrayList<>();
     
-    static LoginPage loginWindow = new LoginPage();
     public static int LoginID = -1;
+    
     /**
      * Creates new form MainPage
      */
@@ -184,17 +184,22 @@ public class LoginPage extends javax.swing.JFrame
            String st;
            while ((st = fin.readLine()) != null)
            {
+               if (st.isEmpty())
+                {
+                    break;
+                }
                String[] line = st.split(",");
                // int cID, String pfName, String plName, String pEmail, String pPassword
-               UserArray.add(new User(Integer.parseInt(line[0]), line[1], line[2], line[3], line[4]));
+               UserArray.add(new User(Integer.parseInt(line[0]), line[1], line[2], line[3], line[4], Integer.parseInt(line[5])));
                Group13.UserIndex++;
             }
-           
         }
         catch (IOException e)
         {
             System.out.println("Error reading Users.txt: " + e);
         }
+        
+        System.out.println(UserArray.size());
         
         String fileNameR = "RSA.txt";
         
@@ -205,6 +210,10 @@ public class LoginPage extends javax.swing.JFrame
             
             while ((st = fin.readLine()) != null)
             {
+                if (st.isEmpty())
+                {
+                    break;
+                }
                 String[] line = st.split(",");
                 
                 // int rID, String fName, String lname, String emil, String password
@@ -229,6 +238,10 @@ public class LoginPage extends javax.swing.JFrame
             
             while ((st = fin.readLine()) != null)
             {
+                if (st.isEmpty())
+                {
+                    break;
+                }
                 String[] line = st.split(",");
                 
                 Date date1;
@@ -267,6 +280,10 @@ public class LoginPage extends javax.swing.JFrame
             
             while ((st = fin.readLine()) != null)
             {
+                if (st.isEmpty())
+                {
+                    break;
+                }
                 String[] line = st.split(",");
                 
                 Date date1;
@@ -305,6 +322,10 @@ public class LoginPage extends javax.swing.JFrame
             
             while ((st = fin.readLine()) != null)
             {
+                if (st.isEmpty())
+                {
+                    break;
+                }
                 String[] line = st.split(",");
                 
                 // int carID, String carMake, String carModel, String carColour, String carTransmission, int carCylinder, String subscription, String registration, int ownerID
@@ -329,40 +350,38 @@ public class LoginPage extends javax.swing.JFrame
             
             while ((st = fin.readLine()) != null)
             {
+                if (st.isEmpty())
+                {
+                    break;
+                }
                 String[] line = st.split(",");
                 
-                System.out.println(line[0] + ", " + line[1] + ", " + line[2] + ", " + line[3] + ", " + line[4]);
-                
                 // int carID, String carMake, String carModel, String carColour, String carTransmission, int carCylinder, String subscription, String registration, int ownerID
-                ReviewArray.add(new Reviews(Integer.parseInt(line[0]), Integer.parseInt(line[1]), Integer.parseInt(line[2]), line[3], line[4]));
+                ReviewArray.add(new Reviews(Integer.parseInt(line[0]), Integer.parseInt(line[1]), Integer.parseInt(line[2]), Integer.parseInt(line[3]), line[4], line[5]));
                 Group13.ReviewIndex++;
             }
         }
         catch (IOException e)
         {
             System.out.println("Error reading ReviewRating.txt: " + e);
-        }   
+        }  
     }
     
     public static void Login(int userType)
     {
         if (userType == 1)
         {
-            //Login as user
-            loginWindow.setVisible(false);
             new UserMainPage().setVisible(true);
         }
         else if (userType == 2)
         {
-            loginWindow.setVisible(false);
             new RSAMainPage().setVisible(true);
         }
     }
     
     public static void Register()
     {
-        //Start register page, hide login page
-        loginWindow.setVisible(false);
+        //Start register page
         new RegisterPage().setVisible(true);
     }
     
@@ -397,7 +416,6 @@ public class LoginPage extends javax.swing.JFrame
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginPage().setVisible(true);
-
             }
         });
     }

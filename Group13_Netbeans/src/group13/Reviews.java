@@ -11,11 +11,12 @@ package group13;
  */
 public class Reviews {
     
-    int UserID, RSA_ID, Rating;
+    int UserID, RSA_ID, Rating, reqID;
     String Message, Location;
     
-    public Reviews(int pUserID, int pRSA_ID, int pRating, String pMessage, String pLocation)
+    public Reviews(int reqID, int pUserID, int pRSA_ID, int pRating, String pMessage, String pLocation)
     {
+        this.reqID = reqID;
         this.UserID = pUserID; //Users' ID
         this.RSA_ID = pRSA_ID; //RSA's ID
         this.Rating = pRating; //Rating out of 10

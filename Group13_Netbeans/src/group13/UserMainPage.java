@@ -67,9 +67,10 @@ public class UserMainPage extends javax.swing.JFrame {
             PreviousRequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PreviousRequestsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(UpdateCurrentRequests))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UpdateCurrentRequests)
+                .addContainerGap())
         );
         PreviousRequestsLayout.setVerticalGroup(
             PreviousRequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,7 +80,7 @@ public class UserMainPage extends javax.swing.JFrame {
                     .addGroup(PreviousRequestsLayout.createSequentialGroup()
                         .addComponent(UpdateCurrentRequests)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -90,6 +91,11 @@ public class UserMainPage extends javax.swing.JFrame {
         jScrollPane1.setViewportView(CompletedRequestsArea);
 
         UpdateCompletedRequests.setText("Update");
+        UpdateCompletedRequests.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UpdateCompletedRequestsMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -97,7 +103,7 @@ public class UserMainPage extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(UpdateCompletedRequests))
         );
@@ -109,7 +115,7 @@ public class UserMainPage extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(UpdateCompletedRequests)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -135,11 +141,11 @@ public class UserMainPage extends javax.swing.JFrame {
         MyAccountTab.setLayout(MyAccountTabLayout);
         MyAccountTabLayout.setHorizontalGroup(
             MyAccountTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 435, Short.MAX_VALUE)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
         MyAccountTabLayout.setVerticalGroup(
             MyAccountTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 302, Short.MAX_VALUE)
+            .addGap(0, 405, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("My Account", MyAccountTab);
@@ -148,11 +154,11 @@ public class UserMainPage extends javax.swing.JFrame {
         MakeRequestTab.setLayout(MakeRequestTabLayout);
         MakeRequestTabLayout.setHorizontalGroup(
             MakeRequestTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 435, Short.MAX_VALUE)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
         MakeRequestTabLayout.setVerticalGroup(
             MakeRequestTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 302, Short.MAX_VALUE)
+            .addGap(0, 405, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Make Request", MakeRequestTab);
@@ -199,27 +205,33 @@ public class UserMainPage extends javax.swing.JFrame {
     private void UpdateCurrentRequestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateCurrentRequestsMouseClicked
         
         //Update TEXTFIELD from array 
-        /* for (int i=0; i < LoginPage.CurrentRequests.size()-1; i++)
-        {
-            String result;
-            Requests line = LoginPage.CurrentRequests.get(i);
-            
-            if (LoginPage.LoginID == line.getCustID())
-            {
-               result = line.getRequestInfo();
-                CurrentRequestsArea.append(result);
-                CurrentRequestsArea.append("\n");
-            }
-        }*/
-        
         for (Requests r : LoginPage.CurrentRequests)
         {
+            System.out.println(r.getCustID());
+            System.out.println(r.getRequestInfo());
             if (LoginPage.LoginID == r.getCustID())
             {
                CurrentRequestsArea.append(r.getRequestInfo()); 
             }
         }
     }//GEN-LAST:event_UpdateCurrentRequestsMouseClicked
+
+    private void UpdateCompletedRequestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateCompletedRequestsMouseClicked
+        // TODO add your handling code here:
+        
+        //UPDATE WITH COMPLETED REQUESTS
+        
+        for (CompletedRequests creq : LoginPage.CompletedRequests)
+        {
+            System.out.println(creq.getCustID());
+            System.out.println(creq.getRequestInfo());
+            
+            
+            
+            CompletedRequestsArea.append(creq.getRequestInfo());
+        }
+        
+    }//GEN-LAST:event_UpdateCompletedRequestsMouseClicked
 
     /**
      * @param args the command line arguments

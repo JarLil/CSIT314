@@ -12,15 +12,17 @@ package group13;
 public class User
 {
     protected String fName, lName, email, password;
-    protected int cID=0;
+    protected int cID = 0;
+    protected int PhoneNum = 0;
     
-    public User(int cID, String pfName, String plName, String pEmail, String pPassword)
+    public User(int cID, String pfName, String plName, String pEmail, String pPassword, int pPhoneNum)
     {
        this.cID = cID;
        this.fName = pfName;
        this.lName = plName;
        this.email = pEmail;
        this.password = pPassword;
+       this.PhoneNum = pPhoneNum;
     }
     
     public String getFullName()

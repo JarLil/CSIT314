@@ -5,6 +5,7 @@
  */
 package group13;
 
+import java.text.*;
 import java.util.*;
 
 /**
@@ -18,11 +19,11 @@ public class Requests
     private final String Status; //PENDING / IN-PROGRESS / COMPLETED. if COMPLETED -> Move to CompletedRequests Array
     private final int cID, rID, reqID; //UserID, RSAID, reqID
     
-    public Requests(int preqID, int cID, Date requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID)
+    public Requests(int preqID, int cID, Date prequestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID)
     {
         this.reqID = preqID;
         this.cID = cID;
-        this.requestDate = requestDate;
+        this.requestDate = prequestDate;
         this.cfName = fName;
         this.clName = lName;
         this.cCarMake = carMake;
@@ -36,9 +37,7 @@ public class Requests
     
     public String getRequestInfo()
     {
-        String date = requestDate.toString();
-        
-        return (date + ", " + cfName + ", " + clName + ", " + cCarMake + ", " + cCarModel + ", " + cRegistration + ", " + Location + ", " + Message);
+        return (requestDate + ", " + cCarMake + ", " + cCarModel + ", " + cRegistration + ", " + Location + '\n' + Message);
     }
     
     public int getCustID()
