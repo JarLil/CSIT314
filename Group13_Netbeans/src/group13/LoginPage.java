@@ -187,6 +187,7 @@ public class LoginPage extends javax.swing.JFrame
                String[] line = st.split(",");
                // int cID, String pfName, String plName, String pEmail, String pPassword
                UserArray.add(new User(Integer.parseInt(line[0]), line[1], line[2], line[3], line[4]));
+               Group13.UserIndex++;
             }
            
         }
@@ -208,6 +209,7 @@ public class LoginPage extends javax.swing.JFrame
                 
                 // int rID, String fName, String lname, String emil, String password
                 AssistantArray.add(new RoadSide_Assistant(Integer.parseInt(line[0]), line[1], line[2], line[3], line[4], Integer.parseInt(line[5]), Boolean.parseBoolean(line[6])));
+                Group13.RSAIndex++;
             }
             
         }
@@ -244,7 +246,8 @@ public class LoginPage extends javax.swing.JFrame
                 }
                 
                 //ReqID, userID, requestDate, userfName, userlName, carMake, carModel, registration, message, location, status, rID
-            CurrentRequests.add(new Requests(Integer.parseInt(line[0]), Integer.parseInt(line[1]), date1, line[3], line[4], line[5], line[6], line[7], line[8], line[9], line[10], Integer.parseInt(line[11])));
+                CurrentRequests.add(new Requests(Integer.parseInt(line[0]), Integer.parseInt(line[1]), date1, line[3], line[4], line[5], line[6], line[7], line[8], line[9], line[10], Integer.parseInt(line[11])));
+                Group13.RequestIndex++;
             }
             
         }
@@ -283,6 +286,7 @@ public class LoginPage extends javax.swing.JFrame
                 
                 // int cID, String requestDate, String fName, String lName, String carMake, String carModel, String registration, String message, String location, String status, int rID, String completeDate
                 CompletedRequests.add(new CompletedRequests(Integer.parseInt(line[0]), Integer.parseInt(line[1]), date1, line[3], line[4], line[5], line[6], line[7], line[8], line[9], line[10], Integer.parseInt(line[11])));
+                Group13.RequestIndex++;
             }
         }
         catch (IOException e)
@@ -304,7 +308,8 @@ public class LoginPage extends javax.swing.JFrame
                 String[] line = st.split(",");
                 
                 // int carID, String carMake, String carModel, String carColour, String carTransmission, int carCylinder, String subscription, String registration, int ownerID
-            CarArray.add(new Car(Integer.parseInt(line[0]), line[1], line[2], line[3], line[4], Integer.parseInt(line[5]), line[6], line[7], Integer.parseInt(line[8])));
+                CarArray.add(new Car(Integer.parseInt(line[0]), line[1], line[2], line[3], line[4], Integer.parseInt(line[5]), line[6], line[7], Integer.parseInt(line[8])));
+                Group13.CarIndex++;
             }
             
         }
@@ -330,6 +335,7 @@ public class LoginPage extends javax.swing.JFrame
                 
                 // int carID, String carMake, String carModel, String carColour, String carTransmission, int carCylinder, String subscription, String registration, int ownerID
                 ReviewArray.add(new Reviews(Integer.parseInt(line[0]), Integer.parseInt(line[1]), Integer.parseInt(line[2]), line[3], line[4]));
+                Group13.ReviewIndex++;
             }
         }
         catch (IOException e)
