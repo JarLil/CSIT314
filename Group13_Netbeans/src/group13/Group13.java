@@ -20,6 +20,7 @@ public class Group13 {
     public static int CarIndex = 0; //Tracks CarID
     public static int RequestIndex = 0; //Tracks requestID
     public static int RSAIndex = 0; //Tracks rsaID
+    public static int ReviewIndex = 0;
     
     public static void main(String[] args) {
         // TODO code application logic here

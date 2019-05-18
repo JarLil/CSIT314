@@ -290,7 +290,7 @@ public class UserMainPage extends javax.swing.JFrame {
     private void UpdateCurrentRequestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateCurrentRequestsMouseClicked
         
         //Update TEXTFIELD from array 
-        for (int i=0; i < LoginPage.CurrentRequests.size(); i++)
+        /* for (int i=0; i < LoginPage.CurrentRequests.size()-1; i++)
         {
             String result;
             Requests line = LoginPage.CurrentRequests.get(i);
@@ -299,8 +299,15 @@ public class UserMainPage extends javax.swing.JFrame {
             {
                result = line.getRequestInfo();
                 CurrentRequestsArea.append(result);
-                //String nl = \n';
                 CurrentRequestsArea.append("\n");
+            }
+        }*/
+        
+        for (Requests r : LoginPage.CurrentRequests)
+        {
+            if (LoginPage.LoginID == r.getCustID())
+            {
+               CurrentRequestsArea.append(r.getRequestInfo()); 
             }
         }
     }//GEN-LAST:event_UpdateCurrentRequestsMouseClicked

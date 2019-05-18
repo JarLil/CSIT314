@@ -5,7 +5,7 @@
  */
 package group13;
 
-import java.util.Date;
+import java.util.*;
 
 /**
  *
@@ -36,7 +36,9 @@ public class Requests
     
     public String getRequestInfo()
     {
-        return (cID + ", " + requestDate + ", " + cfName + ", " + clName + ", " + cCarMake + ", " + cCarModel + ", " + cRegistration + ", " + Location + ", " + Message + ", " + Status + ", " + rID);
+        String date = requestDate.toString();
+        
+        return (date + ", " + cfName + ", " + clName + ", " + cCarMake + ", " + cCarModel + ", " + cRegistration + ", " + Location + ", " + Message);
     }
     
     public int getCustID()
